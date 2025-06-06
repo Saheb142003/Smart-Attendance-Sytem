@@ -18,24 +18,24 @@ This is a Python + Flask-based Smart Student Attendance System that uses Face Re
 ## 🗂️ Project Structure
 
 smart-attendance/
-├── app.py
-├── add*faces.py
-├── view_student.py
-├── run_attendance.py
-├── download_attendance.py
-├── registered_faces/
-│ └── [branch]/[section]/[student]/info.json + faces/
-├── Attendance/
-│ └── [branch]/[date].csv
-├── templates/
-│ ├── app.html
-│ ├── index.html
-│ ├── sections.html
-│ ├── student.html
-│ ├── student_details.html
-│ └── attendance*\* # attendance_branches.html, attendance_files.html, etc.
-├── static/
-│ └── style.css
+            ├── app.py
+            ├── add*faces.py
+            ├── view_student.py
+            ├── run_attendance.py
+            ├── download_attendance.py
+            ├── registered_faces/
+            │ └── [branch]/[section]/[student]/info.json + faces/
+            ├── Attendance/
+            │ └── [branch]/[date].csv
+            ├── templates/
+            │ ├── app.html
+            │ ├── index.html
+            │ ├── sections.html
+            │ ├── student.html
+            │ ├── student_details.html
+            │ └── attendance*\* # attendance_branches.html, attendance_files.html, etc.
+            ├── static/
+            │ └── style.css
 
 ---
 
@@ -43,7 +43,7 @@ smart-attendance/
 
 ### 1. Clone the Repository
 
-git clone https://github.com/yourusername/smart-attendance.git
+git clone (https://github.com/Saheb142003/Smart-Attendance-Sytem)
 cd smart-attendance
 
 ### 2. Install Requirements
