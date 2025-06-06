@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Branches - {{ year }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Branches for Year {{ year }}</h1>
+    <ul>
+        {% for branch in branches %}
+        <li><a href="{{ url_for('sections', year=year, branch=branch) }}">{{ branch }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Years</a>
+</body>
+
+</html>

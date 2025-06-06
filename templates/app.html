@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Attendance System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .actions {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .action-button {
+            padding: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .action-button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Face Recognition Attendance System</h1>
+
+    <form method="post" action="{{ url_for('run_script', script='add_faces') }}">
+        <button type="submit">Add Faces</button>
+    </form>
+
+    <form method="post" action="{{ url_for('run_script', script='run_attendance') }}">
+        <button type="submit">Run Attendance</button>
+    </form>
+
+    <form method="post" action="{{ url_for('run_script', script='download_attendance') }}">
+        <button type="submit">Download Attendance</button>
+    </form>
+
+    <hr>
+
+    {% if output %}
+    <h3>Script Output:</h3>
+    <pre>{{ output }}</pre>
+    {% endif %}
+
+    <hr>
+
+    <nav>
+        <a href="{{ url_for('list_branches') }}">View Registered Students</a> |
+        <a href="{{ url_for('list_attendance_branches') }}">View Attendance Records</a>
+    </nav>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Attendance Files - {{ branch }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Attendance Records - {{ branch }}</h1>
+    <ul>
+        {% for file in files %}
+        <li><a href="{{ url_for('download_attendance', branch=branch, filename=file) }}">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('list_attendance_branches') }}">Back to Attendance Branches</a>
+</body>
+
+</html>

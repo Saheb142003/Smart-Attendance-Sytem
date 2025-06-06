@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .student-list {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            list-style: none;
+        }
+
+        .student-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.2s ease;
+        }
+
+        .student-item:last-child {
+            border-bottom: none;
+        }
+
+        .student-item:hover {
+            background: #f9f9f9;
+        }
+
+        .student-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+            flex-shrink: 0;
+            border: 1px solid #ccc;
+        }
+
+        .student-info {
+            flex-grow: 1;
+        }
+
+        .student-info h3 {
+            margin: 0 0 6px;
+            font-size: 20px;
+        }
+
+        .student-info p {
+            margin: 0;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="{{ url_for('sections', year=year, branch=branch) }}" class="back-link">← Back to Sections</a>
+
+    <ul class="student-list">
+        {% for student in students %}
+        <li>
+            <a href="{{ url_for('student_details', year=student.year, id=student.id) }}" class="student-item">
+                <img src="{{ student.image or url_for('static', filename='default.png') }}"
+                    alt="Photo of {{ student.name or 'Unknown' }}">
+                <div class="student-info">
+                    <h3>{{ student.name or 'Unknown' }}</h3>
+                    <p>Roll No: {{ student.roll or 'N/A' }}</p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

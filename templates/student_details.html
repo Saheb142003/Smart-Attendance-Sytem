@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Details - {{ student.name or 'Unknown' }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .student-details {
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+        .student-photo {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .details-row {
+            margin-bottom: 10px;
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        a.back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="student-details">
+        <h1>Details for {{ student.name or 'Unknown' }}</h1>
+
+        {% if best_face %}
+        <img src="{{ url_for('serve_face', year=year, branch=branch, section=section, student_folder=student_folder, filename=best_face) }}"
+            alt="Photo of {{ student.name or 'Unknown' }}" class="student-photo" />
+        {% else %}
+        <p><em>No photo available.</em></p>
+        {% endif %}
+
+        <div class="details-row"><strong>ID:</strong> {{ student.id or 'N/A' }}</div>
+        <div class="details-row"><strong>Roll No:</strong> {{ student.roll or 'N/A' }}</div>
+        <div class="details-row"><strong>Institute:</strong> {{ student.institute or 'N/A' }}</div>
+        <div class="details-row"><strong>Year:</strong> {{ student.year }}</div>
+        <div class="details-row"><strong>Branch:</strong> {{ student.branch }}</div>
+        <div class="details-row"><strong>Section:</strong> {{ student.section }}</div>
+        <div class="details-row"><strong>Other Info:</strong> {{ student.other_info or 'N/A' }}</div>
+
+        <a href="{{ url_for('student_list', year=year, branch=branch, section=section) }}" class="back-link">← Back to
+            Student List</a>
+    </div>
+</body>
+
+</html>

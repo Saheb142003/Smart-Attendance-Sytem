@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sections - {{ branch }} ({{ year }})</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Sections in {{ branch }} - {{ year }}</h1>
+    <ul>
+        {% for section in sections %}
+        <li><a href="{{ url_for('student_list', year=year, branch=branch, section=section) }}">{{ section
+                }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('branches', year=year) }}">Back to Branches</a>
+</body>
+
+</html>
