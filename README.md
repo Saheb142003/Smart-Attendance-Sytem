@@ -16,7 +16,7 @@ This is a Python + Flask-based Smart Student Attendance System that uses Face Re
 ---
 
 ## 🗂️ Project Structure
-
+```
 smart-attendance/
             ├── app.py
             ├── add*faces.py
@@ -38,6 +38,7 @@ smart-attendance/
             │ └── style.css
 
 ---
+```
 
 ## 🚀 Getting Started
 
